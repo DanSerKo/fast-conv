@@ -18,8 +18,8 @@ void baseEncodeBin(int* B, uint8_t* Bnew, int n, int m) {
     }
 }
 
-std::pair<uint8_t, uint8_t> mul(uint8_t a0, uint8_t a1, uint8_t b, uint8_t& c0, uint8_t& c1) {
-    c0 = (a0 | b) & (a1 | !b);
-    c1 = (a0 | !b) & (a1 | b);
+std::pair<uint8_t, uint8_t> mul(int& c, uint8_t a0, uint8_t a1, uint8_t b) {
+    c += (a0 | b) & (a1 | !b);
+    c -= (a0 | !b) & (a1 | b);
 }
 };
