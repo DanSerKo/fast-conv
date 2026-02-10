@@ -1,15 +1,17 @@
 #include "gemm/gemms.h"
 
 #include <gtest/gtest.h>
+#include <cstdint>
 #include <iostream>
+#include <memory>
 #include <vector>
 #include <random>
 
-TEST(TBN_Test, Matrix64x64_Random) {
+TEST(Correct_Test, V1) {
     const int N = 64, M = 64, K = 64;
     std::vector<int> A_orig(N * K);
     std::vector<int> B_orig(K * M);
-    std::vector<uint8_t> A0(N * K), A1(N * K), Bnew(K * M);
+    std::vector<uint8_t> Anew((N * K + 3) / 4), Bnew((K * M + 7) / 8);
     
     std::vector<int> resV0(N * M);
     std::vector<int> resV1(N * M);
@@ -24,12 +26,12 @@ TEST(TBN_Test, Matrix64x64_Random) {
     for (int i = 0; i < K * M; i++) {
         B_orig[i] = distBinary(gen) ? 1 : -1;
     }
-
-    encoder::baseEncodeTern(A_orig.data(), A0.data(), A1.data(), N, K);
-    encoder::baseEncodeBin(B_orig.data(), Bnew.data(), K, M);
+    
+    encoder::encodeTern(A_orig.data(), Anew.data(), N, K);
+    encoder::encodeBin(B_orig.data(), Bnew.data(), K, M);
     gemmV0(A_orig.data(), B_orig.data(), resV0.data(), N, M, K);
-    gemmV1(A0.data(), A1.data(), Bnew.data(), resV1.data(), N, M, K);
-    for (int i = 0; i < N * M; ++i) {
+    gemmV1(Anew.data(), Bnew.data(), resV1.data(), N, M, K);
+    for (int i = 0; i < N * M; i++) {
         ASSERT_EQ(resV0[i], resV1[i]) << "Ошибка в ячейке [" << i / M << "][" << i % M << "]";
     }
 }
