@@ -1,3 +1,5 @@
+#include "gemms.h"
+
 #include "util/encoder.h"
 
 void gemmV1(uint8_t* A0, uint8_t* A1, uint8_t* B, int* C, int n, int m, int k) {

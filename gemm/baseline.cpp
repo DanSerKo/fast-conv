@@ -1,3 +1,5 @@
+#include "gemms.h"
+
 void gemmV0(int* A, int* B, int* C, int n, int m, int k) {
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < m; j++) {
