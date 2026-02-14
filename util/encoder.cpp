@@ -11,11 +11,13 @@ void encodeTern(int* A, uint8_t* Anew, int n, int m) {
         }
     }
 }
-void encodeBin(int* B, uint8_t* Bnew, int n, int m) {
+void encodeBinT(int* B, uint8_t* Bnew, int n, int m) {
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < m; j++) {
-            int ind = (i * m + j) / 8;
-            int off = (i * m + j) % 8;
+            //int ind = (i * m + j) / 8;
+            //int off = (i * m + j) % 8;
+            int ind = (i / 8) * m + j;
+            int off = i % 8;
             Bnew[ind] |= (B[i * m + j] == -1) << off;
         }
     }

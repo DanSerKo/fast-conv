@@ -13,8 +13,8 @@ void gemmV1(uint8_t* A, uint8_t* B, int* C, int n, int m, int k) {  // "C" мо�
                 int indA = (i * k + t) / 8;
                 int offA = (i * k + t) % 8;
 
-                int indB = (t * m + j) / 8;
-                int offB = (t * m + j) % 8;
+                int indB = (t / 8) * m + j;
+                int offB = t % 8;
 
                 encoder::addMul(C[i * m + j], (A[indA * 2] >> offA) & 1, (A[indA * 2 + 1] >> offA) & 1, (B[indB] >> offB) & 1); 
             }

@@ -28,7 +28,7 @@ TEST(Correct_Test, V1) {
     }
     
     encoder::encodeTern(A_orig.data(), Anew.data(), N, K);
-    encoder::encodeBin(B_orig.data(), Bnew.data(), K, M);
+    encoder::encodeBinT(B_orig.data(), Bnew.data(), K, M);
     gemmV0(A_orig.data(), B_orig.data(), resV0.data(), N, M, K);
     gemmV1(Anew.data(), Bnew.data(), resV1.data(), N, M, K);
     for (int i = 0; i < N * M; i++) {
@@ -57,7 +57,7 @@ TEST(Correct_Test, V2) {
     }
     
     encoder::encodeTern(A_orig.data(), Anew.data(), N, K);
-    encoder::encodeBin(B_orig.data(), Bnew.data(), K, M);
+    encoder::encodeBinT(B_orig.data(), Bnew.data(), K, M);
     gemmV0(A_orig.data(), B_orig.data(), resV0.data(), N, M, K);
     gemmV2(Anew.data(), Bnew.data(), resV1.data(), N, M, K);
     for (int i = 0; i < N * M; i++) {
