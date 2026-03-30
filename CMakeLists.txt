@@ -2,13 +2,17 @@ cmake_minimum_required(VERSION 3.10)
 project(TBN_Test)
 
 set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -march=native")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -msse4.2 -mavx2")
 
 find_package(GTest REQUIRED)
 find_package(benchmark REQUIRED)
 
 set(SOURCE_FILES 
     gemm/baseline.cpp 
-    gemm/coded.cpp 
+    gemm/coded.cpp
+    gemm/cach.cpp 
+    gemm/simd.cpp
     util/encoder.cpp
 )
 

@@ -92,5 +92,6 @@ static void BM_GemmV(benchmark::State& state, void(*f)(uint8_t* A, uint8_t* B, i
 BENCHMARK(BM_GemmV0)->SET_ARGS;
 BENCHMARK([](benchmark::State& state){BM_GemmV(state, gemmV1);})->SET_ARGS;
 BENCHMARK([](benchmark::State& state){BM_GemmV(state, gemmV2);})->SET_ARGS;
+BENCHMARK([](benchmark::State& state){BM_GemmV(state, gemmV3);})->SET_ARGS;
 
 BENCHMARK_MAIN();
