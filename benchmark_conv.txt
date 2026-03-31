@@ -1,0 +1,139 @@
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Benchmark                                                                                                                                   Time             CPU   Iterations
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+BM_Conv2d_Naive/32/32/1/32/3/3/repeats:10_mean                                                                                            285 us          285 us           10
+BM_Conv2d_Naive/32/32/1/32/3/3/repeats:10_median                                                                                          282 us          282 us           10
+BM_Conv2d_Naive/32/32/1/32/3/3/repeats:10_stddev                                                                                         9.69 us         9.69 us           10
+BM_Conv2d_Naive/32/32/1/32/3/3/repeats:10_cv                                                                                             3.40 %          3.40 %            10
+BM_Conv2d_Naive/64/64/3/64/3/3/repeats:10_mean                                                                                           6128 us         6127 us           10
+BM_Conv2d_Naive/64/64/3/64/3/3/repeats:10_median                                                                                         6129 us         6128 us           10
+BM_Conv2d_Naive/64/64/3/64/3/3/repeats:10_stddev                                                                                         44.0 us         43.9 us           10
+BM_Conv2d_Naive/64/64/3/64/3/3/repeats:10_cv                                                                                             0.72 %          0.72 %            10
+BM_Conv2d_Naive/128/128/3/64/3/3/repeats:10_mean                                                                                        24374 us        24370 us           10
+BM_Conv2d_Naive/128/128/3/64/3/3/repeats:10_median                                                                                      24341 us        24337 us           10
+BM_Conv2d_Naive/128/128/3/64/3/3/repeats:10_stddev                                                                                       90.1 us         89.3 us           10
+BM_Conv2d_Naive/128/128/3/64/3/3/repeats:10_cv                                                                                           0.37 %          0.37 %            10
+BM_Conv2d_Naive/256/256/6/128/64/3/3/repeats:10_mean                                                                                  6249373 us      6248609 us           10
+BM_Conv2d_Naive/256/256/6/128/64/3/3/repeats:10_median                                                                                6252016 us      6251115 us           10
+BM_Conv2d_Naive/256/256/6/128/64/3/3/repeats:10_stddev                                                                                  11300 us        11343 us           10
+BM_Conv2d_Naive/256/256/6/128/64/3/3/repeats:10_cv                                                                                       0.18 %          0.18 %            10
+[](benchmark::State& state){ BM_Conv_Packed(state, gemmV12_AVX_4x32); }/32/32/1/32/3/3/64/repeats:10_mean                                59.4 us         59.4 us           10
+[](benchmark::State& state){ BM_Conv_Packed(state, gemmV12_AVX_4x32); }/32/32/1/32/3/3/64/repeats:10_median                              59.2 us         59.2 us           10
+[](benchmark::State& state){ BM_Conv_Packed(state, gemmV12_AVX_4x32); }/32/32/1/32/3/3/64/repeats:10_stddev                             0.735 us        0.736 us           10
+[](benchmark::State& state){ BM_Conv_Packed(state, gemmV12_AVX_4x32); }/32/32/1/32/3/3/64/repeats:10_cv                                  1.24 %          1.24 %            10
+[](benchmark::State& state){ BM_Conv_Packed(state, gemmV12_AVX_4x32); }/32/32/1/32/3/3/128/repeats:10_mean                               56.7 us         56.7 us           10
+[](benchmark::State& state){ BM_Conv_Packed(state, gemmV12_AVX_4x32); }/32/32/1/32/3/3/128/repeats:10_median                             56.7 us         56.7 us           10
+[](benchmark::State& state){ BM_Conv_Packed(state, gemmV12_AVX_4x32); }/32/32/1/32/3/3/128/repeats:10_stddev                            0.258 us        0.258 us           10
+[](benchmark::State& state){ BM_Conv_Packed(state, gemmV12_AVX_4x32); }/32/32/1/32/3/3/128/repeats:10_cv                                 0.46 %          0.46 %            10
+[](benchmark::State& state){ BM_Conv_Packed(state, gemmV12_AVX_4x32); }/128/128/3/64/3/3/128/repeats:10_mean                             4422 us         4421 us           10
+[](benchmark::State& state){ BM_Conv_Packed(state, gemmV12_AVX_4x32); }/128/128/3/64/3/3/128/repeats:10_median                           4419 us         4418 us           10
+[](benchmark::State& state){ BM_Conv_Packed(state, gemmV12_AVX_4x32); }/128/128/3/64/3/3/128/repeats:10_stddev                           49.2 us         49.2 us           10
+[](benchmark::State& state){ BM_Conv_Packed(state, gemmV12_AVX_4x32); }/128/128/3/64/3/3/128/repeats:10_cv                               1.11 %          1.11 %            10
+[](benchmark::State& state){ BM_Conv_Packed(state, gemmV12_AVX_4x32); }/128/128/3/64/3/3/256/repeats:10_mean                             4403 us         4403 us           10
+[](benchmark::State& state){ BM_Conv_Packed(state, gemmV12_AVX_4x32); }/128/128/3/64/3/3/256/repeats:10_median                           4393 us         4393 us           10
+[](benchmark::State& state){ BM_Conv_Packed(state, gemmV12_AVX_4x32); }/128/128/3/64/3/3/256/repeats:10_stddev                           31.8 us         31.8 us           10
+[](benchmark::State& state){ BM_Conv_Packed(state, gemmV12_AVX_4x32); }/128/128/3/64/3/3/256/repeats:10_cv                               0.72 %          0.72 %            10
+[](benchmark::State& state){ BM_Conv_Packed(state, gemmV12_AVX_4x32); }/256/256/6/128/3/3/128/repeats:10_mean                           40025 us        40017 us           10
+[](benchmark::State& state){ BM_Conv_Packed(state, gemmV12_AVX_4x32); }/256/256/6/128/3/3/128/repeats:10_median                         39921 us        39912 us           10
+[](benchmark::State& state){ BM_Conv_Packed(state, gemmV12_AVX_4x32); }/256/256/6/128/3/3/128/repeats:10_stddev                           234 us          235 us           10
+[](benchmark::State& state){ BM_Conv_Packed(state, gemmV12_AVX_4x32); }/256/256/6/128/3/3/128/repeats:10_cv                              0.58 %          0.59 %            10
+[](benchmark::State& state){ BM_Conv_Packed(state, gemmV14_BLIS_SingleThread); }/32/32/1/32/3/3/64/repeats:10_mean                       65.3 us         65.3 us           10
+[](benchmark::State& state){ BM_Conv_Packed(state, gemmV14_BLIS_SingleThread); }/32/32/1/32/3/3/64/repeats:10_median                     65.0 us         65.0 us           10
+[](benchmark::State& state){ BM_Conv_Packed(state, gemmV14_BLIS_SingleThread); }/32/32/1/32/3/3/64/repeats:10_stddev                    0.739 us        0.737 us           10
+[](benchmark::State& state){ BM_Conv_Packed(state, gemmV14_BLIS_SingleThread); }/32/32/1/32/3/3/64/repeats:10_cv                         1.13 %          1.13 %            10
+[](benchmark::State& state){ BM_Conv_Packed(state, gemmV14_BLIS_SingleThread); }/32/32/1/32/3/3/128/repeats:10_mean                      62.9 us         62.9 us           10
+[](benchmark::State& state){ BM_Conv_Packed(state, gemmV14_BLIS_SingleThread); }/32/32/1/32/3/3/128/repeats:10_median                    62.8 us         62.8 us           10
+[](benchmark::State& state){ BM_Conv_Packed(state, gemmV14_BLIS_SingleThread); }/32/32/1/32/3/3/128/repeats:10_stddev                   0.732 us        0.733 us           10
+[](benchmark::State& state){ BM_Conv_Packed(state, gemmV14_BLIS_SingleThread); }/32/32/1/32/3/3/128/repeats:10_cv                        1.16 %          1.17 %            10
+[](benchmark::State& state){ BM_Conv_Packed(state, gemmV14_BLIS_SingleThread); }/128/128/3/64/3/3/128/repeats:10_mean                    4625 us         4624 us           10
+[](benchmark::State& state){ BM_Conv_Packed(state, gemmV14_BLIS_SingleThread); }/128/128/3/64/3/3/128/repeats:10_median                  4617 us         4616 us           10
+[](benchmark::State& state){ BM_Conv_Packed(state, gemmV14_BLIS_SingleThread); }/128/128/3/64/3/3/128/repeats:10_stddev                  23.1 us         23.1 us           10
+[](benchmark::State& state){ BM_Conv_Packed(state, gemmV14_BLIS_SingleThread); }/128/128/3/64/3/3/128/repeats:10_cv                      0.50 %          0.50 %            10
+[](benchmark::State& state){ BM_Conv_Packed(state, gemmV14_BLIS_SingleThread); }/128/128/3/64/3/3/256/repeats:10_mean                    4577 us         4576 us           10
+[](benchmark::State& state){ BM_Conv_Packed(state, gemmV14_BLIS_SingleThread); }/128/128/3/64/3/3/256/repeats:10_median                  4577 us         4577 us           10
+[](benchmark::State& state){ BM_Conv_Packed(state, gemmV14_BLIS_SingleThread); }/128/128/3/64/3/3/256/repeats:10_stddev                  23.9 us         23.8 us           10
+[](benchmark::State& state){ BM_Conv_Packed(state, gemmV14_BLIS_SingleThread); }/128/128/3/64/3/3/256/repeats:10_cv                      0.52 %          0.52 %            10
+[](benchmark::State& state){ BM_Conv_Packed(state, gemmV14_BLIS_SingleThread); }/256/256/6/128/3/3/128/repeats:10_mean                  42098 us        42091 us           10
+[](benchmark::State& state){ BM_Conv_Packed(state, gemmV14_BLIS_SingleThread); }/256/256/6/128/3/3/128/repeats:10_median                42077 us        42067 us           10
+[](benchmark::State& state){ BM_Conv_Packed(state, gemmV14_BLIS_SingleThread); }/256/256/6/128/3/3/128/repeats:10_stddev                  383 us          383 us           10
+[](benchmark::State& state){ BM_Conv_Packed(state, gemmV14_BLIS_SingleThread); }/256/256/6/128/3/3/128/repeats:10_cv                     0.91 %          0.91 %            10
+[](benchmark::State& state){ BM_Conv_Packed(state, gemmCandidate); }/32/32/1/32/3/3/64/repeats:10_mean                                   58.0 us         58.0 us           10
+[](benchmark::State& state){ BM_Conv_Packed(state, gemmCandidate); }/32/32/1/32/3/3/64/repeats:10_median                                 57.9 us         57.9 us           10
+[](benchmark::State& state){ BM_Conv_Packed(state, gemmCandidate); }/32/32/1/32/3/3/64/repeats:10_stddev                                0.755 us        0.753 us           10
+[](benchmark::State& state){ BM_Conv_Packed(state, gemmCandidate); }/32/32/1/32/3/3/64/repeats:10_cv                                     1.30 %          1.30 %            10
+[](benchmark::State& state){ BM_Conv_Packed(state, gemmCandidate); }/32/32/1/32/3/3/128/repeats:10_mean                                  55.2 us         55.2 us           10
+[](benchmark::State& state){ BM_Conv_Packed(state, gemmCandidate); }/32/32/1/32/3/3/128/repeats:10_median                                55.1 us         55.1 us           10
+[](benchmark::State& state){ BM_Conv_Packed(state, gemmCandidate); }/32/32/1/32/3/3/128/repeats:10_stddev                               0.295 us        0.296 us           10
+[](benchmark::State& state){ BM_Conv_Packed(state, gemmCandidate); }/32/32/1/32/3/3/128/repeats:10_cv                                    0.53 %          0.54 %            10
+[](benchmark::State& state){ BM_Conv_Packed(state, gemmCandidate); }/128/128/3/64/3/3/128/repeats:10_mean                                4365 us         4364 us           10
+[](benchmark::State& state){ BM_Conv_Packed(state, gemmCandidate); }/128/128/3/64/3/3/128/repeats:10_median                              4358 us         4357 us           10
+[](benchmark::State& state){ BM_Conv_Packed(state, gemmCandidate); }/128/128/3/64/3/3/128/repeats:10_stddev                              31.5 us         31.6 us           10
+[](benchmark::State& state){ BM_Conv_Packed(state, gemmCandidate); }/128/128/3/64/3/3/128/repeats:10_cv                                  0.72 %          0.72 %            10
+[](benchmark::State& state){ BM_Conv_Packed(state, gemmCandidate); }/128/128/3/64/3/3/256/repeats:10_mean                                4307 us         4307 us           10
+[](benchmark::State& state){ BM_Conv_Packed(state, gemmCandidate); }/128/128/3/64/3/3/256/repeats:10_median                              4302 us         4301 us           10
+[](benchmark::State& state){ BM_Conv_Packed(state, gemmCandidate); }/128/128/3/64/3/3/256/repeats:10_stddev                              21.4 us         21.4 us           10
+[](benchmark::State& state){ BM_Conv_Packed(state, gemmCandidate); }/128/128/3/64/3/3/256/repeats:10_cv                                  0.50 %          0.50 %            10
+[](benchmark::State& state){ BM_Conv_Packed(state, gemmCandidate); }/256/256/6/128/3/3/128/repeats:10_mean                              38949 us        38942 us           10
+[](benchmark::State& state){ BM_Conv_Packed(state, gemmCandidate); }/256/256/6/128/3/3/128/repeats:10_median                            38833 us        38830 us           10
+[](benchmark::State& state){ BM_Conv_Packed(state, gemmCandidate); }/256/256/6/128/3/3/128/repeats:10_stddev                              244 us          243 us           10
+[](benchmark::State& state){ BM_Conv_Packed(state, gemmCandidate); }/256/256/6/128/3/3/128/repeats:10_cv                                 0.63 %          0.62 %            10
+[](benchmark::State& state){ BM_Conv_Packed_Threads(state, gemmV12_AVX_4x32); }/128/128/3/64/3/3/128/2/repeats:10_mean                   2720 us         66.6 us           10
+[](benchmark::State& state){ BM_Conv_Packed_Threads(state, gemmV12_AVX_4x32); }/128/128/3/64/3/3/128/2/repeats:10_median                 2721 us         66.4 us           10
+[](benchmark::State& state){ BM_Conv_Packed_Threads(state, gemmV12_AVX_4x32); }/128/128/3/64/3/3/128/2/repeats:10_stddev                 3.81 us         2.49 us           10
+[](benchmark::State& state){ BM_Conv_Packed_Threads(state, gemmV12_AVX_4x32); }/128/128/3/64/3/3/128/2/repeats:10_cv                     0.14 %          3.73 %            10
+[](benchmark::State& state){ BM_Conv_Packed_Threads(state, gemmV12_AVX_4x32); }/128/128/3/64/3/3/128/4/repeats:10_mean                   1476 us         87.0 us           10
+[](benchmark::State& state){ BM_Conv_Packed_Threads(state, gemmV12_AVX_4x32); }/128/128/3/64/3/3/128/4/repeats:10_median                 1477 us         87.0 us           10
+[](benchmark::State& state){ BM_Conv_Packed_Threads(state, gemmV12_AVX_4x32); }/128/128/3/64/3/3/128/4/repeats:10_stddev                 4.24 us        0.581 us           10
+[](benchmark::State& state){ BM_Conv_Packed_Threads(state, gemmV12_AVX_4x32); }/128/128/3/64/3/3/128/4/repeats:10_cv                     0.29 %          0.67 %            10
+[](benchmark::State& state){ BM_Conv_Packed_Threads(state, gemmV12_AVX_4x32); }/128/128/3/64/3/3/128/8/repeats:10_mean                    821 us          230 us           10
+[](benchmark::State& state){ BM_Conv_Packed_Threads(state, gemmV12_AVX_4x32); }/128/128/3/64/3/3/128/8/repeats:10_median                  821 us          230 us           10
+[](benchmark::State& state){ BM_Conv_Packed_Threads(state, gemmV12_AVX_4x32); }/128/128/3/64/3/3/128/8/repeats:10_stddev                 4.85 us         1.31 us           10
+[](benchmark::State& state){ BM_Conv_Packed_Threads(state, gemmV12_AVX_4x32); }/128/128/3/64/3/3/128/8/repeats:10_cv                     0.59 %          0.57 %            10
+[](benchmark::State& state){ BM_Conv_Packed_Threads(state, gemmV12_AVX_4x32); }/256/256/6/128/3/3/128/4/repeats:10_mean                 11512 us          140 us           10
+[](benchmark::State& state){ BM_Conv_Packed_Threads(state, gemmV12_AVX_4x32); }/256/256/6/128/3/3/128/4/repeats:10_median               11510 us          140 us           10
+[](benchmark::State& state){ BM_Conv_Packed_Threads(state, gemmV12_AVX_4x32); }/256/256/6/128/3/3/128/4/repeats:10_stddev                14.5 us         1.65 us           10
+[](benchmark::State& state){ BM_Conv_Packed_Threads(state, gemmV12_AVX_4x32); }/256/256/6/128/3/3/128/4/repeats:10_cv                    0.13 %          1.18 %            10
+[](benchmark::State& state){ BM_Conv_Packed_Threads(state, gemmV12_AVX_4x32); }/256/256/6/128/3/3/128/8/repeats:10_mean                  6437 us          397 us           10
+[](benchmark::State& state){ BM_Conv_Packed_Threads(state, gemmV12_AVX_4x32); }/256/256/6/128/3/3/128/8/repeats:10_median                6435 us          399 us           10
+[](benchmark::State& state){ BM_Conv_Packed_Threads(state, gemmV12_AVX_4x32); }/256/256/6/128/3/3/128/8/repeats:10_stddev                30.6 us         7.48 us           10
+[](benchmark::State& state){ BM_Conv_Packed_Threads(state, gemmV12_AVX_4x32); }/256/256/6/128/3/3/128/8/repeats:10_cv                    0.47 %          1.88 %            10
+[](benchmark::State& state){ BM_Conv_Packed_Threads(state, gemmV14_BLIS_SingleThread); }/128/128/3/64/3/3/128/2/repeats:10_mean          2862 us         67.5 us           10
+[](benchmark::State& state){ BM_Conv_Packed_Threads(state, gemmV14_BLIS_SingleThread); }/128/128/3/64/3/3/128/2/repeats:10_median        2864 us         67.5 us           10
+[](benchmark::State& state){ BM_Conv_Packed_Threads(state, gemmV14_BLIS_SingleThread); }/128/128/3/64/3/3/128/2/repeats:10_stddev        6.31 us         1.20 us           10
+[](benchmark::State& state){ BM_Conv_Packed_Threads(state, gemmV14_BLIS_SingleThread); }/128/128/3/64/3/3/128/2/repeats:10_cv            0.22 %          1.78 %            10
+[](benchmark::State& state){ BM_Conv_Packed_Threads(state, gemmV14_BLIS_SingleThread); }/128/128/3/64/3/3/128/4/repeats:10_mean          1532 us         87.3 us           10
+[](benchmark::State& state){ BM_Conv_Packed_Threads(state, gemmV14_BLIS_SingleThread); }/128/128/3/64/3/3/128/4/repeats:10_median        1532 us         87.3 us           10
+[](benchmark::State& state){ BM_Conv_Packed_Threads(state, gemmV14_BLIS_SingleThread); }/128/128/3/64/3/3/128/4/repeats:10_stddev        4.59 us        0.709 us           10
+[](benchmark::State& state){ BM_Conv_Packed_Threads(state, gemmV14_BLIS_SingleThread); }/128/128/3/64/3/3/128/4/repeats:10_cv            0.30 %          0.81 %            10
+[](benchmark::State& state){ BM_Conv_Packed_Threads(state, gemmV14_BLIS_SingleThread); }/128/128/3/64/3/3/128/8/repeats:10_mean           856 us          227 us           10
+[](benchmark::State& state){ BM_Conv_Packed_Threads(state, gemmV14_BLIS_SingleThread); }/128/128/3/64/3/3/128/8/repeats:10_median         857 us          227 us           10
+[](benchmark::State& state){ BM_Conv_Packed_Threads(state, gemmV14_BLIS_SingleThread); }/128/128/3/64/3/3/128/8/repeats:10_stddev        5.32 us         1.26 us           10
+[](benchmark::State& state){ BM_Conv_Packed_Threads(state, gemmV14_BLIS_SingleThread); }/128/128/3/64/3/3/128/8/repeats:10_cv            0.62 %          0.56 %            10
+[](benchmark::State& state){ BM_Conv_Packed_Threads(state, gemmV14_BLIS_SingleThread); }/256/256/6/128/3/3/128/4/repeats:10_mean        12049 us          136 us           10
+[](benchmark::State& state){ BM_Conv_Packed_Threads(state, gemmV14_BLIS_SingleThread); }/256/256/6/128/3/3/128/4/repeats:10_median      12048 us          136 us           10
+[](benchmark::State& state){ BM_Conv_Packed_Threads(state, gemmV14_BLIS_SingleThread); }/256/256/6/128/3/3/128/4/repeats:10_stddev       9.02 us         1.56 us           10
+[](benchmark::State& state){ BM_Conv_Packed_Threads(state, gemmV14_BLIS_SingleThread); }/256/256/6/128/3/3/128/4/repeats:10_cv           0.07 %          1.15 %            10
+[](benchmark::State& state){ BM_Conv_Packed_Threads(state, gemmV14_BLIS_SingleThread); }/256/256/6/128/3/3/128/8/repeats:10_mean         6780 us          396 us           10
+[](benchmark::State& state){ BM_Conv_Packed_Threads(state, gemmV14_BLIS_SingleThread); }/256/256/6/128/3/3/128/8/repeats:10_median       6750 us          397 us           10
+[](benchmark::State& state){ BM_Conv_Packed_Threads(state, gemmV14_BLIS_SingleThread); }/256/256/6/128/3/3/128/8/repeats:10_stddev        114 us         5.34 us           10
+[](benchmark::State& state){ BM_Conv_Packed_Threads(state, gemmV14_BLIS_SingleThread); }/256/256/6/128/3/3/128/8/repeats:10_cv           1.68 %          1.35 %            10
+[](benchmark::State& state){ BM_Conv_Packed_Threads(state, gemmCandidate); }/128/128/3/64/3/3/128/2/repeats:10_mean                      2719 us         66.6 us           10
+[](benchmark::State& state){ BM_Conv_Packed_Threads(state, gemmCandidate); }/128/128/3/64/3/3/128/2/repeats:10_median                    2714 us         67.1 us           10
+[](benchmark::State& state){ BM_Conv_Packed_Threads(state, gemmCandidate); }/128/128/3/64/3/3/128/2/repeats:10_stddev                    12.3 us         1.73 us           10
+[](benchmark::State& state){ BM_Conv_Packed_Threads(state, gemmCandidate); }/128/128/3/64/3/3/128/2/repeats:10_cv                        0.45 %          2.60 %            10
+[](benchmark::State& state){ BM_Conv_Packed_Threads(state, gemmCandidate); }/128/128/3/64/3/3/128/4/repeats:10_mean                      1446 us         86.4 us           10
+[](benchmark::State& state){ BM_Conv_Packed_Threads(state, gemmCandidate); }/128/128/3/64/3/3/128/4/repeats:10_median                    1446 us         86.3 us           10
+[](benchmark::State& state){ BM_Conv_Packed_Threads(state, gemmCandidate); }/128/128/3/64/3/3/128/4/repeats:10_stddev                    3.00 us        0.549 us           10
+[](benchmark::State& state){ BM_Conv_Packed_Threads(state, gemmCandidate); }/128/128/3/64/3/3/128/4/repeats:10_cv                        0.21 %          0.64 %            10
+[](benchmark::State& state){ BM_Conv_Packed_Threads(state, gemmCandidate); }/128/128/3/64/3/3/128/8/repeats:10_mean                       809 us          227 us           10
+[](benchmark::State& state){ BM_Conv_Packed_Threads(state, gemmCandidate); }/128/128/3/64/3/3/128/8/repeats:10_median                     811 us          227 us           10
+[](benchmark::State& state){ BM_Conv_Packed_Threads(state, gemmCandidate); }/128/128/3/64/3/3/128/8/repeats:10_stddev                    4.60 us         1.10 us           10
+[](benchmark::State& state){ BM_Conv_Packed_Threads(state, gemmCandidate); }/128/128/3/64/3/3/128/8/repeats:10_cv                        0.57 %          0.48 %            10
+[](benchmark::State& state){ BM_Conv_Packed_Threads(state, gemmCandidate); }/256/256/6/128/3/3/128/4/repeats:10_mean                    11380 us          136 us           10
+[](benchmark::State& state){ BM_Conv_Packed_Threads(state, gemmCandidate); }/256/256/6/128/3/3/128/4/repeats:10_median                  11371 us          136 us           10
+[](benchmark::State& state){ BM_Conv_Packed_Threads(state, gemmCandidate); }/256/256/6/128/3/3/128/4/repeats:10_stddev                   43.7 us         2.62 us           10
+[](benchmark::State& state){ BM_Conv_Packed_Threads(state, gemmCandidate); }/256/256/6/128/3/3/128/4/repeats:10_cv                       0.38 %          1.92 %            10
+[](benchmark::State& state){ BM_Conv_Packed_Threads(state, gemmCandidate); }/256/256/6/128/3/3/128/8/repeats:10_mean                     6368 us          387 us           10
+[](benchmark::State& state){ BM_Conv_Packed_Threads(state, gemmCandidate); }/256/256/6/128/3/3/128/8/repeats:10_median                   6362 us          387 us           10
+[](benchmark::State& state){ BM_Conv_Packed_Threads(state, gemmCandidate); }/256/256/6/128/3/3/128/8/repeats:10_stddev                   22.5 us         2.74 us           10
+[](benchmark::State& state){ BM_Conv_Packed_Threads(state, gemmCandidate); }/256/256/6/128/3/3/128/8/repeats:10_cv                       0.35 %          0.71 %            10

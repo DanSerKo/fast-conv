@@ -79,16 +79,16 @@ static void BM_GemmV(benchmark::State& state, void(*f)(uint8_t* A, uint8_t* B, i
     Args({32, 1024, 9})       /* (32x32, 1ch) */ \
     ->Args({64, 16384, 27})    /* (128x128, 3ch) */ \
     ->Args({128, 65536, 54})   /* (256x256, 6ch) */ \
-    /*->Args({64, 65536, 288})  /* (256x256, 6ch, 32) */ \
-    /*->Args({16, 262144, 27})   /* (512x512, 3) */ \
-    /*->Args({256, 16384, 2304}) /* (128x128, 256ch) */ \
-    /*->Args({512, 4096, 2304})  /* (64x64, 256ch) */ \
-    /*->Args({256, 256, 4608})   /* (16x16, 512ch) */ \
+    ->Args({64, 65536, 288})  /* (256x256, 6ch, 32) */ \
+    ->Args({16, 262144, 27})   /* (512x512, 3) */ \
+    ->Args({256, 16384, 2304}) /* (128x128, 256ch) */ \
+    ->Args({512, 4096, 2304})  /* (64x64, 256ch) */ \
+    ->Args({256, 256, 4608})   /* (16x16, 512ch) */ \
     ->Unit(benchmark::kMicrosecond) \
     ->Repetitions(10) \
     ->DisplayAggregatesOnly(true)
 
-/*
+
 BENCHMARK(BM_GemmV0)->SET_ARGS;
 BENCHMARK([](benchmark::State& state){BM_GemmV(state, gemmV1);})->SET_ARGS;
 BENCHMARK([](benchmark::State& state){BM_GemmV(state, gemmV2);})->SET_ARGS;
@@ -98,7 +98,7 @@ BENCHMARK([](benchmark::State& state){BM_GemmV(state, gemmV5_blocked);})->SET_AR
 BENCHMARK([](benchmark::State& state){BM_GemmV(state, gemmV6_packed);})->SET_ARGS;
 BENCHMARK([](benchmark::State& state){BM_GemmV(state, gemmV7_SSE);})->SET_ARGS;
 BENCHMARK([](benchmark::State& state){BM_GemmV(state, gemmV8_AVX);})->SET_ARGS;
-BENCHMARK([](benchmark::State& state){BM_GemmV(state, gemmV12_AVX_4x32);})->SET_ARGS;*/
+BENCHMARK([](benchmark::State& state){BM_GemmV(state, gemmV12_AVX_4x32);})->SET_ARGS;
 
 BENCHMARK([](benchmark::State& state){BM_GemmV(state, gemmV14_BLIS_SingleThread);})->SET_ARGS;
 
