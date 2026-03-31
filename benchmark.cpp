@@ -101,13 +101,13 @@ BENCHMARK([](benchmark::State& state){BM_GemmV(state, gemmV8_AVX);})->SET_ARGS;
 BENCHMARK([](benchmark::State& state){BM_GemmV(state, gemmV12_AVX_4x32);})->SET_ARGS;*/
 
 BENCHMARK([](benchmark::State& state){BM_GemmV(state, gemmV14_BLIS_SingleThread);})->SET_ARGS;
-BENCHMARK([](benchmark::State& state){BM_GemmV(state, gemmV15_Ultimate);})->SET_ARGS;
 
 BENCHMARK([](benchmark::State& state){BM_GemmV(state, gemmV16_BLIS_CorrectOrder);})->SET_ARGS;
 BENCHMARK([](benchmark::State& state){BM_GemmV(state, gemmV17_BLIS_FastKernel);})->SET_ARGS;
 BENCHMARK([](benchmark::State& state){BM_GemmV(state, gemmV18_Ultimate_SingleThread);})->SET_ARGS;
 BENCHMARK([](benchmark::State& state){BM_GemmV(state, gemmV14_BLIS_SingleThread_Optimized);})->SET_ARGS;
 BENCHMARK([](benchmark::State& state){BM_GemmV(state, gemmV19_TheUltimate_ST);})->SET_ARGS;
+BENCHMARK([](benchmark::State& state){BM_GemmV(state, gemmCandidate);})->SET_ARGS;
 
 
 

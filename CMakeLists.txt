@@ -5,6 +5,7 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -march=native")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -msse4.2 -mavx2")
 
+
 find_package(GTest REQUIRED)
 find_package(benchmark REQUIRED)
 
@@ -16,6 +17,13 @@ set(SOURCE_FILES
     gemm/micro_kernel.cpp
     gemm/V14opt.cpp
     gemm/final.cpp
+    gemm/best.cpp
+
+    im2col/base.cpp
+    im2col/naive.cpp
+    im2col/p-im2col.cpp
+    im2col/parallel.cpp
+
     util/encoder.cpp
 )
 

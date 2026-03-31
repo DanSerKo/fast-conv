@@ -190,47 +190,6 @@ void gemmV14_BLIS_SingleThread(uint8_t* Anew, uint8_t* Bnew, int* resV1, int n, 
     _mm_free(B_packed);
 }
 
-void gemmV15_Ultimate(uint8_t* Anew, uint8_t* Bnew, int* resV1, int n, int m, int k) {
-    int k_bytes = k / 8;
-    memset(resV1, 0, n * m * sizeof(int));
-
-    #pragma omp parallel
-    {
-        uint8_t* A_packed = (uint8_t*)_mm_malloc(MC * KC * 2, 64);
-        uint8_t* B_packed = (uint8_t*)_mm_malloc(KC * NC, 64);
-
-        #pragma omp for collapse(2)
-        for (int jc = 0; jc < m; jc += NC) {
-            for (int ic = 0; ic < n; ic += MC) {
-                int cur_nc = std::min(NC, m - jc);
-                int cur_mc = std::min(MC, n - ic);
-
-                for (int pc = 0; pc < k_bytes; pc += KC) {
-                    int cur_kc = std::min(KC, k_bytes - pc);
-
-                    pack_A_safe(cur_mc, cur_kc, &Anew[(ic * k_bytes + pc) * 2], k_bytes, A_packed);
-                    pack_B_safe(cur_kc, cur_nc, &Bnew[pc * m + jc], m, B_packed);
-
-                    for (int jr = 0; jr < cur_nc; jr += 32) {
-                        for (int ir = 0; ir < cur_mc; ir += 4) {
-                            int micro_nc = std::min(32, cur_nc - jr);
-                            int micro_mc = std::min(4, cur_mc - ir);
-
-                            micro_kernel_final(cur_kc, 
-                                               &A_packed[(ir / 4 * cur_kc) * 8], 
-                                               &B_packed[(jr / 32 * cur_kc) * 32], 
-                                               &resV1[(ic + ir) * m + (jc + jr)], m, 
-                                               micro_mc, micro_nc);
-                        }
-                    }
-                }
-            }
-        }
-        _mm_free(A_packed);
-        _mm_free(B_packed);
-    }
-}
-
 void gemmV16_BLIS_CorrectOrder(uint8_t* Anew, uint8_t* Bnew, int* res, int n, int m, int k) {
     int k_bytes = k / 8;
     memset(res, 0, n * m * sizeof(int));
