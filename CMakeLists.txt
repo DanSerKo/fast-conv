@@ -12,7 +12,10 @@ set(SOURCE_FILES
     gemm/baseline.cpp 
     gemm/coded.cpp
     gemm/cach.cpp 
-    gemm/simd.cpp
+    gemm/simd.cpp 
+    gemm/micro_kernel.cpp
+    gemm/V14opt.cpp
+    gemm/final.cpp
     util/encoder.cpp
 )
 

@@ -65,3 +65,42 @@ int popcount256(__m256i v) {
            __builtin_popcountll(_mm256_extract_epi64(v, 2)) +
            __builtin_popcountll(_mm256_extract_epi64(v, 3));
 }
+
+__m256i popcount256_vec_sum(__m256i v) {
+    __m256i lookup = _mm256_setr_epi8(
+        0, 1, 1, 2, 1, 2, 2, 3, 1, 2, 2, 3, 2, 3, 3, 4,
+        0, 1, 1, 2, 1, 2, 2, 3, 1, 2, 2, 3, 2, 3, 3, 4
+    );
+    __m256i low_mask = _mm256_set1_epi8(0x0F);
+    
+    __m256i lo = _mm256_and_si256(v, low_mask);
+    __m256i hi = _mm256_and_si256(_mm256_srli_epi16(v, 4), low_mask);
+    
+    __m256i pop_lo = _mm256_shuffle_epi8(lookup, lo);
+    __m256i pop_hi = _mm256_shuffle_epi8(lookup, hi);
+    __m256i pop = _mm256_add_epi8(pop_lo, pop_hi);
+    
+    return _mm256_sad_epu8(pop, _mm256_setzero_si256());
+}
+
+int hsum_256(__m256i v) {
+    return _mm256_extract_epi64(v, 0) + 
+           _mm256_extract_epi64(v, 1) + 
+           _mm256_extract_epi64(v, 2) + 
+           _mm256_extract_epi64(v, 3);
+}
+
+__m256i popcount_per_byte(__m256i v) {
+    __m256i lookup = _mm256_setr_epi8(
+        0, 1, 1, 2, 1, 2, 2, 3, 1, 2, 2, 3, 2, 3, 3, 4,
+        0, 1, 1, 2, 1, 2, 2, 3, 1, 2, 2, 3, 2, 3, 3, 4
+    );
+    __m256i low_mask = _mm256_set1_epi8(0x0F);
+    __m256i lo = _mm256_and_si256(v, low_mask);
+    __m256i hi = _mm256_and_si256(_mm256_srli_epi16(v, 4), low_mask);
+    
+    __m256i pop_lo = _mm256_shuffle_epi8(lookup, lo);
+    __m256i pop_hi = _mm256_shuffle_epi8(lookup, hi);
+    return _mm256_add_epi8(pop_lo, pop_hi);
+}
+
