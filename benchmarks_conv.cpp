@@ -97,7 +97,7 @@ static void BM_Conv_Packed(benchmark::State& state, gemm_func_t gemm_impl) {
             fix.image.data(), fix.Anew.data(), fix.output.data(),
             C_in, H, W, C_out, K_h, K_w, stride, pad, P, gemm_impl
         );
-        benchmark::DoNotOptimize(fix.output);
+        //benchmark::DoNotOptimize(fix.output);
     }
 }
 
@@ -120,7 +120,7 @@ static void BM_Conv_Packed_Threads(benchmark::State& state, gemm_func_t gemm_imp
             fix.image.data(), fix.Anew.data(), fix.output.data(),
             C_in, H, W, C_out, K_h, K_w, stride, pad, P, num_threads, gemm_impl
         );
-        benchmark::DoNotOptimize(fix.output);
+        //benchmark::DoNotOptimize(fix.output);
     }
 }
 

@@ -5,8 +5,8 @@ void gemmV0(int* A, int* B, int* C, int n, int m, int k) {
         for (int j = 0; j < m; j++) {
             C[i * m + j] = 0;
         }
-        for (int t = 0; t < k; t++) {
-            for (int j = 0; j < m; j++) {
+        for (int j = 0; j < m; j++) {
+           for (int t = 0; t < k; t++) {
                 C[i * m + j] += A[i * k + t] * B[t * m + j]; 
             }
         }

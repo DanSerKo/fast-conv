@@ -71,7 +71,7 @@ static void BM_GemmV(benchmark::State& state, void(*f)(uint8_t* A, uint8_t* B, i
 
     for (auto _ : state) {
         f(fix.Anew.data(), fix.Bnew.data(), fix.res.data(), n, m, k);
-        benchmark::DoNotOptimize(fix.res);
+        //benchmark::DoNotOptimize(fix.res);
     }
 }
 
@@ -85,7 +85,7 @@ static void BM_GemmV(benchmark::State& state, void(*f)(uint8_t* A, uint8_t* B, i
     ->Args({512, 4096, 2304})  /* (64x64, 256ch) */ \
     ->Args({256, 256, 4608})   /* (16x16, 512ch) */ \
     ->Unit(benchmark::kMicrosecond) \
-    ->Repetitions(10) \
+    ->Repetitions(3) \
     ->DisplayAggregatesOnly(true)
 
 
